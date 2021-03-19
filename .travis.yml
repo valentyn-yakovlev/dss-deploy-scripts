@@ -18,6 +18,6 @@ script:
     find {lib,libexec,bin} -type f -print | xargs shellcheck -x
   - nix-env -iA cachix -f https://cachix.org/api/v1/install
   - echo "trusted-users = root travis" | sudo tee -a /etc/nix/nix.conf && sudo pkill nix-daemon
-  - cachix use maker
+  - cachix use ixito-cache
   - cachix push maker --watch-store &
-  - nix-build -j2 | cachix push maker
+  - nix-build -j2
